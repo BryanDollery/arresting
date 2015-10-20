@@ -4,7 +4,7 @@ Restler [![NPM Version](https://img.shields.io/npm/v/restler.svg?style=flat)](ht
 (C) Dan Webb (dan@danwebb.net/@danwrong) 2011, Licensed under the MIT-LICENSE
 some parts (C) Bryan Dollery
 
-An HTTP client library for node.js with built-in rate-limiting.  Hides most of the complexity of creating and using http.Client.
+An HTTP client library for node.js with built-in rate-limiting.  Forked from danwrong/restler.
 
 See [Version History](https://github.com/bryandollery/restler/wiki/Version-History) for changes
 
@@ -266,9 +266,3 @@ rest.putJson('http://example.com/action', jsonData).on('complete', function(data
 
 ```
 
-TODO
-----
-* What do you need? Let me know or fork.
-
-[http-agent-doc]: https://nodejs.org/api/http.html#http_class_http_agent
-[http-global-agent-doc]: https://nodejs.org/api/http.html#http_http_globalagent 
