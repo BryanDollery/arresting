@@ -1,21 +1,17 @@
 {
-  "name": "restler",
+  "name": "restler-wth-rate-limiting",
   "version": "3.4.0",
-  "description": "An HTTP client library for node.js",
+  "description": "An HTTP client library for node.js with built-in rate-limiting",
   "contributors": [
     {
-      "name": "Dan Webb",
-      "email": "dan@danwebb.net"
-    },
-    {
-      "name": "Ben Marvell",
-      "email": "ben@marvell-consulting.com"
+      "name": "Bryan Dollery",
+      "email": "bryan.dollery@gmail.com"
     }
   ],
-  "homepage": "https://github.com/danwrong/restler",
+  "homepage": "https://github.com/bryandollery/restler",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danwrong/restler.git"
+    "url": "https://github.com/bryandollery/restler.git"
   },
   "directories": {
     "lib": "./lib"
@@ -29,6 +25,7 @@
   },
   "dependencies": {
     "iconv-lite": "0.2.11",
+    "lodash": "^3.10.1",
     "qs": "1.2.0",
     "simple-rate-limiter": "^0.2.3",
     "xml2js": "0.4.0",

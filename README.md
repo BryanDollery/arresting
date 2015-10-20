@@ -2,10 +2,11 @@ Restler [![NPM Version](https://img.shields.io/npm/v/restler.svg?style=flat)](ht
 =======
 
 (C) Dan Webb (dan@danwebb.net/@danwrong) 2011, Licensed under the MIT-LICENSE
+some parts (C) Bryan Dollery
 
-An HTTP client library for node.js.  Hides most of the complexity of creating and using http.Client.
+An HTTP client library for node.js with built-in rate-limiting.  Hides most of the complexity of creating and using http.Client.
 
-See [Version History](https://github.com/danwrong/restler/wiki/Version-History) for changes
+See [Version History](https://github.com/bryandollery/restler/wiki/Version-History) for changes
 
 Installing
 ----------
@@ -197,6 +198,49 @@ Twitter = rest.service(function(u, p) {
   this.defaults.password = p;
 }, {
   baseURL: 'http://twitter.com'
+}, {
+  update: function(message) {
+    return this.post('/statuses/update.json', { data: { status: message } });
+  }
+});
+
+var client = new Twitter('danwrong', 'password');
+client.update('Tweeting using a Restler service thingy').on('complete', function(data) {
+  console.log(data);
+});
+
+// create a service, as above, but limit it to making 5 http/s requests a second
+Twitter = rest.service(function(u, p) {
+  this.defaults.username = u;
+  this.defaults.password = p;
+}, {
+  baseURL: 'http://twitter.com',
+  rateLimit: {
+    to: 5,
+    per: 1000
+  }
+}, {
+  update: function(message) {
+    return this.post('/statuses/update.json', { data: { status: message } });
+  }
+});
+
+var client = new Twitter('danwrong', 'password');
+client.update('Tweeting using a Restler service thingy').on('complete', function(data) {
+  console.log(data);
+});
+
+// Rate limit only chosen methods -- as above, but with an array containing those methods to limit
+Twitter = rest.service(function(u, p) {
+  this.defaults.username = u;
+  this.defaults.password = p;
+}, {
+  baseURL: 'http://twitter.com',
+  rateLimit: {
+    to: 5,
+    per: 1000,
+    methods: ['post', 'put', 'del', 'patch'] // only rate limit those methods that may change things on the server
+  }
 }, {
   update: function(message) {
     return this.post('/statuses/update.json', { data: { status: message } });
