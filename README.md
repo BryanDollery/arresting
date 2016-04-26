@@ -2,6 +2,7 @@
 [
 ![NPM Version](https://img.shields.io/npm/v/arresting.svg?style=flat)](https://www.npmjs.com/package/arresting)
 ![Node Version](https://img.shields.io/node/v/arresting.svg?style=flat)
+[![Dependency Status](https://img.shields.io/david/arresting/arresting.svg?style=flat-square)](https://david-dm.org/arresting/arresting)
 ![Downloads](https://img.shields.io/npm/dm/arresting.svg?style=flat)
 [![Build Status](https://travis-ci.org/BryanDollery/arresting.svg?branch=master)](https://travis-ci.org/BryanDollery/arresting)
 
