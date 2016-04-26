@@ -1,4 +1,4 @@
-var rest   = require('../lib/restler'),
+var rest   = require('../lib/arresting'),
     http   = require('http'),
     util    = require('util'),
     path   = require('path'),

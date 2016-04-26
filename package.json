@@ -1,6 +1,6 @@
 {
-  "name": "restler-wth-rate-limiting",
-  "version": "3.4.0",
+  "name": "arresting",
+  "version": "1.0.0",
   "description": "An HTTP client library for node.js with built-in rate-limiting",
   "contributors": [
     {
@@ -8,15 +8,15 @@
       "email": "bryan.dollery@gmail.com"
     }
   ],
-  "homepage": "https://github.com/bryandollery/restler",
+  "homepage": "https://github.com/bryandollery/arresting",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bryandollery/restler.git"
+    "url": "https://github.com/bryandollery/arresting.git"
   },
   "directories": {
     "lib": "./lib"
   },
-  "main": "./lib/restler",
+  "main": "./lib/arresting",
   "engines": {
     "node": ">= 0.10.x"
   },

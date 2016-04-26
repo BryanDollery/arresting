@@ -1,18 +1,25 @@
-Restler [![NPM Version](https://img.shields.io/npm/v/restler.svg?style=flat)](https://www.npmjs.com/package/restler) ![Node Version](https://img.shields.io/node/v/restler.svg?style=flat) ![Downloads](https://img.shields.io/npm/dm/restler.svg?style=flat)
+Arresting [![NPM Version](https://img.shields.io/npm/v/arresting.svg?style=flat)](https://www.npmjs.com/package/arresting) ![Node Version](https://img.shields.io/node/v/arresting.svg?style=flat) ![Downloads](https://img.shields.io/npm/dm/arresting.svg?style=flat) [![Build Status](https://travis-ci.org/bryandollery/arresting.svg?branch=master)](https://travis-ci.org/bryandollery/arresting)
 =======
 
+An HTTP client library for node.js with built-in rate-limiting.  Originally forked from danwrong/restler. Added rate-limiting. Merged in some of the pull requests outstanding on Dan Webb's Restler project, which hasn't seen any love for ages.
+
+See [Version History](https://github.com/bryandollery/arresting/wiki/Version-History) for changes
+
+Copyright
+----------
+(C) Bryan Dollery 2016, Licensed under the MIT-LICENSE
+
+Largely based on Dan Webb's 'Restler' module:
+
 (C) Dan Webb (dan@danwebb.net/@danwrong) 2011, Licensed under the MIT-LICENSE
-some parts (C) Bryan Dollery
 
-An HTTP client library for node.js with built-in rate-limiting.  Forked from danwrong/restler.
-
-See [Version History](https://github.com/bryandollery/restler/wiki/Version-History) for changes
+Contains contributions from other developers/contributors with copyright for those owned by the original author.
 
 Installing
 ----------
 
 ```
-npm install restler
+npm install arresting
 ```
 
 Running the tests
@@ -127,11 +134,11 @@ All of these attempt to turn the response into a JavaScript object. In order to 
 Note that if you want your request body to be JSON with the `Content-Type: application/json`, you need to
 `JSON.stringify` your object first. Otherwise, it will be sent as `application/x-www-form-urlencoded` and encoded accordingly.
 Also you can use `json()` and `postJson()` methods.
-* `parser` A function that will be called on the returned data. Use any of predefined `restler.parsers`. See parsers section below. Defaults to `restler.parsers.auto`.
+* `parser` A function that will be called on the returned data. Use any of predefined `arresting.parsers`. See parsers section below. Defaults to `arresting.parsers.auto`.
 * `xml2js` [Options](https://github.com/Leonidas-from-XIV/node-xml2js#options) for xml2js
 * `encoding` The encoding of the request body. Defaults to `"utf8"`.
 * `decoding` The encoding of the response body. For a list of supported values see [Buffers](http://nodejs.org/api/buffer.html#buffer_buffer). Additionally accepts `"buffer"` - returns response as `Buffer`. Defaults to `"utf8"`.
-* `headers` A hash of HTTP headers to be sent. Defaults to `{ 'Accept': '*/*', 'User-Agent': 'Restler for node.js' }`.
+* `headers` A hash of HTTP headers to be sent. Defaults to `{ 'Accept': '*/*', 'User-Agent': 'Arresting for node.js' }`.
 * `username` Basic auth username. Defaults to empty.
 * `password` Basic auth password. Defaults to empty.
 * `accessToken` OAuth Bearer Token. Defaults to empty.
@@ -146,7 +153,7 @@ Example usage
 -------------
 
 ```javascript
-var rest = require('./restler');
+var rest = require('./arresting');
 
 rest.get('http://google.com').on('complete', function(result) {
   if (result instanceof Error) {
@@ -185,7 +192,7 @@ rest.post('https://twaud.io/api/v1/upload.json', {
   username: 'danwrong',
   password: 'wouldntyouliketoknow',
   data: {
-    'sound[message]': 'hello from restler!',
+    'sound[message]': 'hello from arresting!',
     'sound[file]': rest.file('doug-e-fresh_the-show.mp3', null, 321567, null, 'audio/mpeg')
   }
 }).on('complete', function(data) {
@@ -205,7 +212,7 @@ Twitter = rest.service(function(u, p) {
 });
 
 var client = new Twitter('danwrong', 'password');
-client.update('Tweeting using a Restler service thingy').on('complete', function(data) {
+client.update('Tweeting using a Arresting service thingy').on('complete', function(data) {
   console.log(data);
 });
 
@@ -226,7 +233,7 @@ Twitter = rest.service(function(u, p) {
 });
 
 var client = new Twitter('danwrong', 'password');
-client.update('Tweeting using a Restler service thingy').on('complete', function(data) {
+client.update('Tweeting using a Arresting service thingy').on('complete', function(data) {
   console.log(data);
 });
 
@@ -248,7 +255,7 @@ Twitter = rest.service(function(u, p) {
 });
 
 var client = new Twitter('danwrong', 'password');
-client.update('Tweeting using a Restler service thingy').on('complete', function(data) {
+client.update('Tweeting using a Arresting service thingy').on('complete', function(data) {
   console.log(data);
 });
 
@@ -265,4 +272,10 @@ rest.putJson('http://example.com/action', jsonData).on('complete', function(data
 });
 
 ```
+=======
+TODO
+----
+* What do you need? Let me know or fork.
 
+[http-agent-doc]: https://nodejs.org/api/http.html#http_class_http_agent
+[http-global-agent-doc]: https://nodejs.org/api/http.html#http_http_globalagent 
