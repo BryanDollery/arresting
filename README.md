@@ -1,4 +1,8 @@
-Arresting [![NPM Version](https://img.shields.io/npm/v/arresting.svg?style=flat)](https://www.npmjs.com/package/arresting) ![Node Version](https://img.shields.io/node/v/arresting.svg?style=flat) ![Downloads](https://img.shields.io/npm/dm/arresting.svg?style=flat) [![Build Status](https://travis-ci.org/bryandollery/arresting.svg?branch=master)](https://travis-ci.org/bryandollery/arresting)
+Arresting
+[![NPM Version](https://img.shields.io/npm/v/arresting.svg?style=flat)](https://www.npmjs.com/package/arresting)
+![Node Version](https://img.shields.io/node/v/arresting.svg?style=flat)
+![Downloads](https://img.shields.io/npm/dm/arresting.svg?style=flat)
+[![Build Status](https://travis-ci.org/bryandollery/arresting.svg?branch=master)](https://travis-ci.org/bryandollery/arresting)
 =======
 
 An HTTP client library for node.js with built-in rate-limiting.  Originally forked from danwrong/restler. Added rate-limiting. Merged in some of the pull requests outstanding on Dan Webb's Restler project, which hasn't seen any love for ages.
