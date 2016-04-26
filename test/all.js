@@ -1,4 +1,3 @@
-
 require('./arresting'); // debug
 var nodeunit = require('nodeunit');
 var reporter = nodeunit.reporters['default'];
