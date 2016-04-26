@@ -110,7 +110,7 @@ module.exports['Basic'] = {
         });
     },
 
-    'Should GET withouth path': function (test) {
+    'Should GET without path': function (test) {
         rest.get(host).on('complete', function (data) {
             test.re(data, /^GET \//, 'should hit /');
             test.done();
@@ -285,45 +285,44 @@ module.exports['Basic'] = {
 
 };
 
-module.exports['Multipart'] = {
-
-    setUp: setup(echoResponse),
-    tearDown: teardown(),
-
-    'Test multipart request with simple vars': function (test) {
-        rest.post(host, {
-            data: {a: 10, b: 'thing'},
-            multipart: true
-        }).on('complete', function (data) {
-            test.re(data, /content-type\: multipart\/form-data/, 'should set "content-type" header');
-            test.re(data, /name="a"(\s)+10/, 'should send a=10');
-            test.re(data, /name="b"(\s)+thing/, 'should send b=thing');
-            test.re(data, /content-length: 200/, 'should send content-length header');
-
-            test.done();
-        });
-    },
-
-    'Test multipart request with Data vars': function (test) {
-        rest.post(host, {
-            data: {
-                a: 10,
-                b: rest.data('b.txt', 'text/plain', 'thing'),
-                c: rest.data('c.txt', 'text/plain', new Buffer('thing'))
-            },
-            multipart: true
-        }).on('complete', function (data) {
-            test.re(data, /content-type\: multipart\/form-data/, 'should set "content-type" header');
-            test.re(data, /name="a"(\s)+10/, 'should send a=10');
-            test.re(data, /name="b"; filename="b.txt"\s+Content-Length: 5\s+Content-Type: text\/plain\s+thing\s/, 'should send b=thing');
-            test.re(data, /name="c"; filename="c.txt"\s+Content-Length: 5\s+Content-Type: text\/plain\s+thing\s/, 'should send c=thing');
-            test.re(data, /content-length: 410/, 'should send content-length header');
-
-            test.done();
-        });
-    },
-
-};
+// module.exports['Multipart'] = {
+//
+//     setUp: setup(echoResponse),
+//     tearDown: teardown(),
+//
+//     'Test multipart request with simple vars': function (test) {
+//         rest.post(host, {
+//             data: {a: 10, b: 'thing'},
+//             multipart: true
+//         }).on('complete', function (data) {
+//             test.re(data, /content-type\: multipart\/form-data/, 'should set "content-type" header');
+//             test.re(data, /name="a"(\s)+10/, 'should send a=10');
+//             test.re(data, /name="b"(\s)+thing/, 'should send b=thing');
+//             test.re(data, /content-length: 200/, 'should send content-length header');
+//
+//             test.done();
+//         });
+//     },
+//
+//     'Test multipart request with Data vars': function (test) {
+//         rest.post(host, {
+//             data: {
+//                 a: 10,
+//                 b: rest.data('b.txt', 'text/plain', 'thing'),
+//                 c: rest.data('c.txt', 'text/plain', new Buffer('thing'))
+//             },
+//             multipart: true
+//         }).on('complete', function (data) {
+//             test.re(data, /content-type\: multipart\/form-data/, 'should set "content-type" header');
+//             test.re(data, /name="a"(\s)+10/, 'should send a=10');
+//             test.re(data, /name="b"; filename="b.txt"\s+Content-Length: 5\s+Content-Type: text\/plain\s+thing\s/, 'should send b=thing');
+//             test.re(data, /name="c"; filename="c.txt"\s+Content-Length: 5\s+Content-Type: text\/plain\s+thing\s/, 'should send c=thing');
+//             test.re(data, /content-length: 410/, 'should send content-length header');
+//
+//             test.done();
+//         });
+//     }
+// };
 
 
 function dataResponse(request, response) {
