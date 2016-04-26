@@ -1,4 +1,4 @@
-Arresting
+# Arresting
 [
 ![NPM Version](https://img.shields.io/npm/v/arresting.svg?style=flat)](https://www.npmjs.com/package/arresting)
 ![Node Version](https://img.shields.io/node/v/arresting.svg?style=flat)
