@@ -258,7 +258,7 @@ Twitter = rest.service(function(u, p) {
   }
 });
 
-var client = new Twitter('danwrong', 'password');
+var client = new Twitter('bryandollery', 'password');
 client.update('Tweeting using a Arresting service thingy').on('complete', function(data) {
   console.log(data);
 });
